@@ -37,6 +37,10 @@ flutter:
 
   assets:
     - assets/images/detective.png
+    - assets/images/mother.png
+    - assets/images/boyfriend.png
+    - assets/images/girlfriend.png
+    - assets/images/father.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

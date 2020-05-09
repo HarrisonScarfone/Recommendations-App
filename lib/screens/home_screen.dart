@@ -1,8 +1,5 @@
 import 'package:findstuff/screens/recommend_for_screen.dart';
-import 'package:findstuff/screens/recommend_what_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'swiping_screen.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -14,8 +11,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  void goToRecommendWhatScreen(){
-    Navigator.of(context).pushNamed(RecommendWhatScreen.routeName);
+  void goToRecommendForScreen(){
+    Navigator.of(context).pushNamed(RecommendForScreen.routeName);
   }
 
   @override
@@ -41,27 +38,16 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 100.0,
               child: new RaisedButton(
                   onPressed: () {
-                    goToRecommendWhatScreen();
+                    goToRecommendForScreen();
                   },
                   child: Text(
-                    'Find me something!',
+                    'Find Me a Gift!',
                     style: TextStyle(
                       fontSize: 30
                     ),
                   ),
               ),
             ),
-            new Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-            ),
-            Container(
-              child: Text(
-                'Let us recommend it.',
-                style: TextStyle(
-                  fontSize: 20
-                ),
-              ),
-            )
           ],
         )
       ),

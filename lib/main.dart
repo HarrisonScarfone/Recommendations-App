@@ -1,10 +1,10 @@
-import 'package:findstuff/screens/recommend_what_screen.dart';
+import 'package:findstuff/screens/card_screen.dart';
+import 'package:findstuff/screens/search_setup_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
-import 'screens/swiping_screen.dart';
 import 'screens/recommend_for_screen.dart';
-import 'screens/recommend_what_screen.dart';
+import 'screens/card_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,9 +26,10 @@ class _MyAppState extends State<MyApp> {
       ),
       routes:{
         '/': (ctx) => HomeScreen(),
-        RecommendWhatScreen.routeName: (ctx) => RecommendWhatScreen(),
+//        RecommendWhatScreen.routeName: (ctx) => RecommendWhatScreen(),
         RecommendForScreen.routeName: (ctx) => RecommendForScreen(),
-        SwipingScreen.routeName: (ctx) => SwipingScreen(),
+        SearchSetupScreen.routeName: (ctx) => SearchSetupScreen(),
+        CardScreen.routeName: (ctx) => CardScreen(),
       },
     );
   }
