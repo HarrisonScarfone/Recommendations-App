@@ -1,4 +1,4 @@
-import 'package:findstuff/todos/search_package.dart';
+import 'package:findstuff/todos/pass_to_cards_screen.dart';
 import 'package:flutter/material.dart';
 
 class CardScreen extends StatefulWidget {

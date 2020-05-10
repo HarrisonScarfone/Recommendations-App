@@ -1,5 +1,6 @@
 import 'package:findstuff/screens/search_setup_screen.dart';
-import 'package:findstuff/todos/searching_for_who.dart';
+import 'package:findstuff/todos/pass_to_search_setup.dart';
+import 'package:findstuff/utilities/default_keywords.dart';
 import 'package:flutter/material.dart';
 
 class RecommendForButton extends StatelessWidget {
@@ -17,11 +18,17 @@ class RecommendForButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        print(this.category);
+        print(DefaultKeywords.keywords[this.category]);
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => SearchSetupScreen(
-              searchingForWho: SearchingForWho(this.category),
+              passToSearchSetup: PassToSearchSetup(
+                  this.category,
+                  DefaultKeywords.keywords[this.category]
+                      .map((element) => element)
+                      .toList()),
             ),
           ),
         );

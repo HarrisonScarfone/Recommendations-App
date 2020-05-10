@@ -1,32 +1,74 @@
 class DefaultKeywords {
-
-    static Map<String, List<String>> keywords = {
-
-      "girlfriend" : [
-        'chocolate', 'flowers', 'useless stuff', 'garden', 'kitchen',
-        'sandwhich making', 'stay at home', 'decorations', 'glass ceiling',
-        'missing 30 percent of salary',
-      ],
-
-      "boyfriend": [
-        'a cipher for my feelings', 'sandwhich', 'bbq', 'outdoors', 'fishing',
-        'some money back from everything he paid for', 'a mute button for me',
-        'bud light', 'hunting', 'video games', 'brazzers membership',
-      ],
-
-      "universal": [
-        'board', 'game',
-      ],
-
-      "over18": [
-
-      ],
-
-      "under18": [
-
-      ]
-
-    };
-
-
+  static Map<String, List<String>> keywords = {
+    "Girlfriend": [
+      'chocolate',
+      'flowers',
+      'garden',
+      'kitchen',
+      'home',
+      'decorations',
+      'wine',
+      'basket',
+      'cookbook',
+      'soap',
+      'candel',
+      'picture',
+      'earrings',
+      'necklace',
+    ],
+    "Boyfriend": [
+      'bbq',
+      'outdoors',
+      'fishing',
+      'hunting',
+      'sports',
+      'football',
+      'hockey',
+      'basketball',
+      'video',
+      'game',
+      'xbox',
+      'PS4',
+    ],
+    "Father": [
+      'bbq',
+      'outdoors',
+      'fishing',
+      'car',
+      'care',
+      'lawn',
+      'garage',
+      'home',
+      'tools',
+      'snack',
+      'chair',
+      'cooler',
+      'popcorn',
+      'cards',
+      'poker',
+    ],
+    "Mother": [
+      'flowers',
+      'baking',
+      'candels',
+      'soap',
+      'baskets',
+      'gardening',
+      'decorations',
+      'home',
+      'pictures',
+      'games',
+      'novelty',
+      'perfume',
+      'earrings',
+      'necklace',
+      'jewlery',
+    ],
+    "universal": [
+      'board',
+      'game',
+    ],
+    "over18": [],
+    "under18": []
+  };
 }

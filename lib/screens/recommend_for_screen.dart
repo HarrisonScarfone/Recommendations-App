@@ -1,14 +1,15 @@
-import 'package:findstuff/todos/searching_for_who.dart';
+import 'package:findstuff/todos/pass_to_search_setup.dart';
+import 'package:findstuff/utilities/default_keywords.dart';
 import 'package:flutter/material.dart';
 
 import 'package:findstuff/widgets/recommend_for_button.dart';
 
 class RecommendForScreen extends StatelessWidget {
-  final SearchingForWho searchingForWho;
+  final PassToSearchSetup passToSearchSetup;
 
   static const routeName = '/recommend_for_who_screen';
 
-  RecommendForScreen({Key key, @required this.searchingForWho})
+  RecommendForScreen({Key key, @required this.passToSearchSetup})
       : super(key: key);
 
   @override
