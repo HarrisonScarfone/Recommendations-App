@@ -43,6 +43,9 @@ class _CardScreenState extends State<CardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
+      appBar: AppBar(
+        title: Text('Flip Through Some Options'),
+      ),
       body: Column(
         children: <Widget>[
           Flexible(
@@ -134,7 +137,7 @@ class _CardScreenState extends State<CardScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Container(
-                height: 500,
+                height: 300,
                 width: 300,
                 child: Text(
                   cards[x].title,
