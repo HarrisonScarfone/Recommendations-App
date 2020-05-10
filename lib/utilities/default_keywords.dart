@@ -64,11 +64,11 @@ class DefaultKeywords {
       'necklace',
       'jewlery',
     ],
-    "universal": [
-      'board',
-      'game',
+    "default": [
+      'present',
+      'gift',
     ],
     "over18": [],
-    "under18": []
+    "under18": [],
   };
 }

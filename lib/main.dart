@@ -1,4 +1,5 @@
 import 'package:findstuff/screens/card_screen.dart';
+import 'package:findstuff/screens/pick_match_screen.dart';
 import 'package:findstuff/screens/search_setup_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
         RecommendForScreen.routeName: (ctx) => RecommendForScreen(),
         SearchSetupScreen.routeName: (ctx) => SearchSetupScreen(),
         CardScreen.routeName: (ctx) => CardScreen(),
+        PickMatchScreen.routeName: (ctx) => PickMatchScreen(),
       },
     );
   }

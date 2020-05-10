@@ -41,9 +41,9 @@ class RecommendForScreen extends StatelessWidget {
           RecommendForButton(
               'Father', 'assets/images/father.png', 5, 5, 75, 75),
           RecommendForButton(
-              'Friend', 'assets/images/mother.png', 5, 5, 75, 75),
+              'Friend', 'assets/images/friend.png', 5, 5, 75, 75),
           RecommendForButton(
-              'Work Friend', 'assets/images/mother.png', 5, 5, 75, 75),
+              'Colleague', 'assets/images/colleague.png', 5, 5, 75, 75),
           RecommendForButton(
               'Yourself', 'assets/images/mother.png', 5, 5, 75, 75),
           RecommendForButton(

@@ -10,7 +10,7 @@ import 'package:findstuff/utilities/default_keywords.dart';
 class SearchSetupScreen extends StatefulWidget {
   static const routeName = '/search_setup_screen';
 
-  PassToSearchSetup passToSearchSetup;
+  final PassToSearchSetup passToSearchSetup;
 
   SearchSetupScreen({Key key, @required this.passToSearchSetup})
       : super(key: key);
@@ -30,8 +30,8 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
   TextEditingController _highPriceController;
   TextEditingController _userKeywordController;
 
-  Color defaultColor = Color.fromRGBO(100, 100, 100, 1);
-  Color pressedColor = Color.fromRGBO(50,25,100, 0.8);
+  Color defaultColor = Color.fromRGBO(100, 100, 100, 0.5);
+  Color pressedColor = Color.fromRGBO(152, 251, 152, 0.5);
 
   Color color0;
   Color color1;
@@ -70,8 +70,48 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
     color11 = defaultColor;
   }
 
-  List<String> parseKeywords(String string){
+  void resetColors(){
+    color0 = defaultColor;
+    color1 = defaultColor;
+    color2 = defaultColor;
+    color3 = defaultColor;
+    color4 = defaultColor;
+    color5 = defaultColor;
+    color6 = defaultColor;
+    color7 = defaultColor;
+    color8 = defaultColor;
+    color9 = defaultColor;
+    color10 = defaultColor;
+    color11 = defaultColor;
+  }
+
+  List<String> parseKeywords(String string) {
     return string.split(new RegExp(r"\s+"));
+  }
+
+  emptyStringAlertDialog(BuildContext context) {
+    Widget okButton = FlatButton(
+      child: Text('OK'),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    AlertDialog emptyStringListAlert = AlertDialog(
+      title: Text('Can\'t Search for Nothing!'),
+      content: Text(
+          'We\'re good, but we\'re not quite at mind reading level yet.  Give us some help by selecting or entering at least one keyword.'),
+      actions: [
+        okButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return emptyStringListAlert;
+      },
+    );
   }
 
   @override
@@ -99,7 +139,9 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                 Container(
                   padding: EdgeInsets.all(5),
                   child: Text(
-                    'Finding Gifts For a ' + widget.passToSearchSetup.who + '...',
+                    'Finding Gifts For a ' +
+                        widget.passToSearchSetup.who +
+                        '...',
                     style: TextStyle(
                       fontSize: 25,
                     ),
@@ -135,7 +177,8 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                       children: <Widget>[
                         new TextField(
                           controller: _lowPriceController,
-                          decoration: new InputDecoration(labelText: "Price Min"),
+                          decoration:
+                              new InputDecoration(labelText: "Price Min"),
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                         )
@@ -180,13 +223,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(0))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(0));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(0))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(0));
                           setState(() {
                             color0 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(0));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(0));
                           setState(() {
                             color0 = defaultColor;
                           });
@@ -195,7 +241,7 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                       child: Card(
                         color: color0,
                         child: Text(
-                            widget.passToSearchSetup.keywords.elementAt(0),
+                          widget.passToSearchSetup.keywords.elementAt(0),
                           style: TextStyle(fontSize: 20),
                           textAlign: TextAlign.center,
                         ),
@@ -203,13 +249,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(1))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(1));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(1))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(1));
                           setState(() {
                             color1 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(1));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(1));
                           setState(() {
                             color1 = defaultColor;
                           });
@@ -226,13 +275,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(2))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(2));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(2))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(2));
                           setState(() {
                             color2 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(2));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(2));
                           setState(() {
                             color2 = defaultColor;
                           });
@@ -249,13 +301,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(3))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(3));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(3))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(3));
                           setState(() {
                             color3 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(3));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(3));
                           setState(() {
                             color3 = defaultColor;
                           });
@@ -277,13 +332,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(4))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(4));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(4))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(4));
                           setState(() {
                             color4 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(4));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(4));
                           setState(() {
                             color4 = defaultColor;
                           });
@@ -300,13 +358,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(5))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(5));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(5))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(5));
                           setState(() {
                             color5 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(5));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(5));
                           setState(() {
                             color5 = defaultColor;
                           });
@@ -323,13 +384,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(6))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(6));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(6))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(6));
                           setState(() {
                             color6 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(6));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(6));
                           setState(() {
                             color6 = defaultColor;
                           });
@@ -346,13 +410,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(7))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(7));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(7))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(7));
                           setState(() {
                             color7 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(7));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(7));
                           setState(() {
                             color7 = defaultColor;
                           });
@@ -374,13 +441,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(8))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(8));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(8))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(8));
                           setState(() {
                             color8 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(8));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(8));
                           setState(() {
                             color8 = defaultColor;
                           });
@@ -397,13 +467,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(9))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(9));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(9))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(9));
                           setState(() {
                             color9 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(9));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(9));
                           setState(() {
                             color9 = defaultColor;
                           });
@@ -420,13 +493,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(10))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(10));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(10))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(10));
                           setState(() {
                             color10 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(10));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(10));
                           setState(() {
                             color10 = defaultColor;
                           });
@@ -443,13 +519,16 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        if(!_searchStringsToPass.contains(widget.passToSearchSetup.keywords.elementAt(11))){
-                          _searchStringsToPass.add(widget.passToSearchSetup.keywords.elementAt(11));
+                        if (!_searchStringsToPass.contains(
+                            widget.passToSearchSetup.keywords.elementAt(11))) {
+                          _searchStringsToPass.add(
+                              widget.passToSearchSetup.keywords.elementAt(11));
                           setState(() {
                             color11 = pressedColor;
                           });
-                        }else{
-                          _searchStringsToPass.remove(widget.passToSearchSetup.keywords.elementAt(11));
+                        } else {
+                          _searchStringsToPass.remove(
+                              widget.passToSearchSetup.keywords.elementAt(11));
                           setState(() {
                             color11 = defaultColor;
                           });
@@ -494,27 +573,39 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                       padding: EdgeInsets.all(5),
                       child: new MaterialButton(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
                         elevation: 5.0,
                         minWidth: 300.0,
                         height: 75,
                         color: Colors.blue,
                         child: new Text(
                           'Start Swiping',
-                          style:
-                              new TextStyle(fontSize: 30.0, color: Colors.white),
+                          style: new TextStyle(
+                              fontSize: 30.0, color: Colors.white),
                         ),
                         onPressed: () {
+                          if (_searchStringsToPass.isEmpty) {
+                            emptyStringAlertDialog(context);
+                            return;
+                          }
+                          print(_searchStringsToPass);
                           widget.passToSearchSetup.keywords = DefaultKeywords
                               .keywords[widget.passToSearchSetup.who]
                               .map((element) => element)
                               .toList();
-                          phantom_list.addAll(parseKeywords(_userKeywordController.text));
-                          for(int i = 0; i < phantom_list.length; i++){
-                           if(!_searchStringsToPass.contains(phantom_list.elementAt(i))){
-                             _searchStringsToPass.add(phantom_list.elementAt(i));
-                           }
+                          phantom_list.addAll(
+                              parseKeywords(_userKeywordController.text));
+                          for (int i = 0; i < phantom_list.length; i++) {
+                            if (!_searchStringsToPass
+                                .contains(phantom_list.elementAt(i))) {
+                              _searchStringsToPass
+                                  .add(phantom_list.elementAt(i));
+                            }
                           }
+                          List<String> _toPass = List.from(this._searchStringsToPass);
+                          this._searchStringsToPass.removeRange(0, this._searchStringsToPass.length);
+                          resetColors();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -524,7 +615,7 @@ class _SearchSetupScreenState extends State<SearchSetupScreen> {
                                   int.parse(_ageController.text),
                                   int.parse(_lowPriceController.text),
                                   int.parse(_highPriceController.text),
-                                  this._searchStringsToPass,
+                                  _toPass,
                                 ),
                               ),
                             ),
