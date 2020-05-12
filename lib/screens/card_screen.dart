@@ -1,4 +1,7 @@
+import 'package:findstuff/screens/pick_match_screen.dart';
 import 'package:findstuff/todos/pass_to_cards_screen.dart';
+import 'package:findstuff/todos/item_package.dart';
+import 'package:findstuff/todos/pass_to_pick_match_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:findstuff/utilities/match_card.dart';
 
@@ -14,6 +17,7 @@ class CardScreen extends StatefulWidget {
 
 class _CardScreenState extends State<CardScreen> {
   List<Widget> cardList;
+  List<ItemPackage> matches = List<ItemPackage>();
 
   void _removeCard(index) {
     setState(() {
@@ -25,18 +29,6 @@ class _CardScreenState extends State<CardScreen> {
   void initState() {
     super.initState();
     cardList = _getMatchCards();
-  }
-
-  void goToPickMatchScreen() {
-//    Navigator.push(
-//      context,
-//      MaterialPageRoute(
-//        builder: (context) => CardScreen(
-//          searchPackage: new SearchPackage(
-//          ),
-//        ),
-//      ),
-//    );
   }
 
   @override
@@ -57,36 +49,18 @@ class _CardScreenState extends State<CardScreen> {
             ),
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                RaisedButton(
-                  onPressed: () {
-                    print('test');
-                  },
-                  child: Text(
-                    'No',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    print('Yes');
-                  },
-                  child: Text(
-                    'Yes',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 25),
             child: RaisedButton(
               onPressed: () {
-                print('see matches');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PickMatchScreen(
+                      passToPickMatchScreen:
+                          new PassToPickMatchScreen(this.matches),
+                    ),
+                  ),
+                );
               },
               child: Text(
                 'See my matches!',
@@ -115,8 +89,14 @@ class _CardScreenState extends State<CardScreen> {
         Positioned(
           top: 10,
           child: Draggable(
-            onDragEnd: (drag) {
-              _removeCard(x);
+            onDraggableCanceled: (Velocity velocity, Offset offset) {
+              print(offset.dx);
+              if (offset.dx > 100) {
+                matches.add(ItemPackage(cards.elementAt(x).title));
+                _removeCard(x);
+              }else if(offset.dx < -100){
+                _removeCard(x);
+              }
             },
             childWhenDragging: Container(),
             feedback: Card(
@@ -126,7 +106,7 @@ class _CardScreenState extends State<CardScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Container(
-                height: 500,
+                height: 400,
                 width: 300,
               ),
             ),
@@ -137,7 +117,7 @@ class _CardScreenState extends State<CardScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Container(
-                height: 300,
+                height: 400,
                 width: 300,
                 child: Text(
                   cards[x].title,

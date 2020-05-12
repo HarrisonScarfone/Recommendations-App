@@ -7,4 +7,4 @@ to finish in some sort of describable time frame.
 
 This can be pulled and rebuildt in Android Studio with the Flutter framework.
 
-I am using a Google Nexus 2 running Android 9 as an emulator for this project. 
+I am using a Google Nexus 2 running Android 9 as an emulator for this project.

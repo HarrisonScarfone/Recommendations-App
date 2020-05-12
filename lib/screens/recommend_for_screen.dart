@@ -16,6 +16,7 @@ class RecommendForScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -41,13 +42,13 @@ class RecommendForScreen extends StatelessWidget {
           RecommendForButton(
               'Father', 'assets/images/father.png', 5, 5, 75, 75),
           RecommendForButton(
-              'Friend', 'assets/images/friend.png', 5, 5, 75, 75),
+              'Friend', 'assets/images/detective.png', 5, 5, 75, 75),
           RecommendForButton(
-              'Colleague', 'assets/images/colleague.png', 5, 5, 75, 75),
+              'Colleague', 'assets/images/detective.png', 5, 5, 75, 75),
           RecommendForButton(
-              'Yourself', 'assets/images/mother.png', 5, 5, 75, 75),
+              'Yourself', 'assets/images/yourself.png', 5, 5, 75, 75),
           RecommendForButton(
-              'Random', 'assets/images/mother.png', 5, 5, 75, 75),
+              'Random', 'assets/images/random.png', 5, 5, 75, 75),
         ],
       ),
     );
