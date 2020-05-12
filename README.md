@@ -1,7 +1,9 @@
 # Find Me A Gift!
 
 Well, here we go with the first attempt at an app that I intend
-to finish in some sort of describable time frame.
+to finish in some sort of describable time frame. For the record,
+I do eventually intend to put this on the app store; gotta get that
+official app dev card at some point.
 
 ## Disclaimer
 
